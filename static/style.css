@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: linear-gradient(135deg, #4b2c82, #5a2d8a, #7a2f6e);
+    color: white;
+}
+
+/* HEADER */
+.header {
+    text-align: center;
+    padding: 30px 10px;
+    background: rgba(0,0,0,0.35);
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 36px;
+    letter-spacing: 2px;
+}
+
+.header p {
+    margin-top: 8px;
+    font-size: 16px;
+    color: #e0e0e0;
+}
+
+/* MAIN CARD */
+.container {
+    width: 400px;
+    margin: 80px auto;
+    background: white;
+    color: #333;
+    padding: 25px;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0px 12px 30px rgba(0,0,0,0.45);
+}
+
+.container h2 {
+    margin-bottom: 20px;
+}
+
+input {
+    width: 90%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+button {
+    padding: 12px 25px;
+    background: linear-gradient(90deg, #3b82f6, #ec4899);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* RESULT */
+#result {
+    margin-top: 20px;
+    font-size: 17px;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 12px;
+    font-size: 14px;
+    background: rgba(0,0,0,0.35);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

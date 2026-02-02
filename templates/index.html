@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Website Risk Checker</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <h1>HUNT FOR SOLUTION (HFS)</h1>
+        <p>Real-Time Website Risk Assessment System</p>
+    </header>
+
+    <!-- MAIN CARD -->
+    <div class="container">
+        <h2>Website Risk Checker</h2>
+
+        <input type="text" id="url" placeholder="Enter website URL (https://example.com)">
+        <button onclick="checkWebsite()">Check Website</button>
+
+        <div id="result"></div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2026 HFS Team | Cybersecurity Project</p>
+    </footer>
+
+<script>
+function checkWebsite() {
+    const url = document.getElementById("url").value;
+
+    if (url.trim() === "") {
+        alert("Please enter a URL");
+        return;
+    }
+
+    fetch("/check", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ url: url })
+    })
+    .then(response => response.json())
+    .then(data => {
+        let color = "green";
+        if (data.verdict === "WARNING") color = "orange";
+        if (data.verdict === "UNSAFE") color = "red";
+
+        document.getElementById("result").innerHTML = `
+            <p><strong>Risk Probability:</strong> ${data.risk_probability}%</p>
+            <p><strong>Status:</strong>
+                <span style="color:${color}; font-weight:bold;">
+                    ${data.verdict}
+                </span>
+            </p>
+        `;
+    });
+}
+</script>
+
+</body>
+</html>
